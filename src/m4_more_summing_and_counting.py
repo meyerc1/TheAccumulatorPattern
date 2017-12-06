@@ -12,8 +12,8 @@ in its "in graphics" form:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Carson Meyer.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
 import builtins  # Never necessary, but here for pedagogical reasons
@@ -31,9 +31,9 @@ import builtins  # Never necessary, but here for pedagogical reasons
 # ----------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_sum_from()
-    run_test_factorial()
-    run_test_count_cosines_from()
+    #run_test_sum_from()
+    #run_test_factorial()
+    #run_test_count_cosines_from()
     run_test_sum_unit_fractions_from()
 
 
@@ -90,7 +90,7 @@ def run_test_sum_from():
     print('       actual (from my code):  ', answer_from_my_code)
 
 # ----------------------------------------------------------------------
-# TODO: 2.
+# DONE: 2.
 #   When you have READ the above  run_test_sum_from  function,
 #   asking questions as needed, and you feel that you (mostly, at least)
 #   understand it, and you feel that you understand from the example:
@@ -114,7 +114,7 @@ def sum_from(m, n):
         sum_from(6, 9) returns 6 + 7 + 8 + 9, that is, 30.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT:  Your solution MUST
@@ -124,12 +124,20 @@ def sum_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(n):
+        if (m + k) < n:
+            total = total + (m + k)
 
+        if (m + (k + 1)) == n:
+            total = total + n
+
+    return total
 
 def run_test_factorial():
     """ Tests the   factorial   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  factorial  function defined below.
     #   Include at least **   5   ** tests (we wrote two for you).
     #
@@ -145,22 +153,40 @@ def run_test_factorial():
     print('--------------------------------------------------')
 
     # Test 1:
-    answer_from_oracle = math.factorial(0)
-    answer_from_my_code = factorial(0)
-    print('Test 1 expected (from oracle):', answer_from_oracle)
-    print('       actual (from my code): ', answer_from_my_code)
+    answer_from_oracle1 = math.factorial(0)
+    answer_from_my_code1 = factorial(0)
+    print('Test 1 expected (from oracle):', answer_from_oracle1)
+    print('       actual (from my code): ', answer_from_my_code1)
 
     # Test 2:
-    answer_from_oracle = math.factorial(21)
-    answer_from_my_code = factorial(21)
-    print('Test 2 expected (from oracle):', answer_from_oracle)
-    print('       actual (from my code): ', answer_from_my_code)
+    answer_from_oracle2 = math.factorial(21)
+    answer_from_my_code2 = factorial(21)
+    print('Test 2 expected (from oracle):', answer_from_oracle2)
+    print('       actual (from my code): ', answer_from_my_code2)
 
     # ------------------------------------------------------------------
     # TO DO: 4 (continued).
     # Below this comment, add 3 more test cases, at least two of which
     #   ** uses  math.factorial  as an ORACLE for testing. **
     # ------------------------------------------------------------------
+
+    # Test 3:
+    answer_from_oracle3 = math.factorial(5)
+    answer_from_my_code3 = factorial(5)
+    print('Test 3 expected (from oracle):', answer_from_oracle3)
+    print('       actual (from my code): ', answer_from_my_code3)
+
+    # Test 4:
+    answer_from_oracle4 = math.factorial(0)
+    answer_from_my_code4 = factorial(0)
+    print('Test 4 expected (from oracle):', answer_from_oracle4)
+    print('       actual (from my code): ', answer_from_my_code4)
+
+    # Test 5:
+    answer_from_oracle5 = math.factorial(4)
+    answer_from_my_code5 = factorial(4)
+    print('Test 5 expected (from oracle):', answer_from_oracle5)
+    print('       actual (from my code): ', answer_from_my_code5)
 
 
 def factorial(n):
@@ -173,18 +199,24 @@ def factorial(n):
         factorial(0) returns 1 (by definition).
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT:  Your solution MUST
     #   use an explicit    for ... in range(...):     statement.
     # ------------------------------------------------------------------
+    total = 1
+
+    for k in range(n):
+        total = total * (n - k)
+
+    return total
 
 
 def run_test_count_cosines_from():
     """ Tests the   count_cosines_from   function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  count_cosines_from  function defined below.
     #   Include at least **   6   ** tests (we wrote one for you).
     #              ** Yes, 6 (six) tests. **
@@ -223,6 +255,36 @@ def run_test_count_cosines_from():
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected2 = 3
+    answer2 = count_cosines_from(3, 9, 0.27)
+    print('Test 2 expected:', expected2)
+    print('       actual:  ', answer2)
+
+    # Test 3:
+    expected3 = 4
+    answer3 = count_cosines_from(4, 8, -0.5)
+    print('Test 3 expected:', expected3)
+    print('       actual:  ', answer3)
+
+    # Test 4:
+    expected4 = 2
+    answer4 = count_cosines_from(5, 7, 0.45)
+    print('Test 4 expected:', expected4)
+    print('       actual:  ', answer4)
+
+    # Test 5:
+    expected5 = 1
+    answer5 = count_cosines_from(4, 8, 0.95)
+    print('Test 5 expected:', expected5)
+    print('       actual:  ', answer5)
+
+    # Test 6:
+    expected6 = 0
+    answer6 = count_cosines_from(3, 4, 0)
+    print('Test 6 expected:', expected6)
+    print('       actual:  ', answer6)
+
 
 def count_cosines_from(m, n, x):
     """
@@ -244,19 +306,35 @@ def count_cosines_from(m, n, x):
       -- count_cosines_from(4, 8, -0.5)  returns  4
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(n):
+
+        if (m + k) < n:
+            cos_val = math.cos(m + k)
+
+            if cos_val > x:
+                total = total + 1
+
+        if (m + k) == n:
+            cos_val = math.cos(n)
+
+            if cos_val > x:
+                total = total + 1
+
+    return total
 
 
 def run_test_sum_unit_fractions_from():
     """ Tests the   sum_unit_fractions_from   function. """
     # ------------------------------------------------------------------
-    # TODO: 8. Implement this TEST function.
+    # DONE: 8. Implement this TEST function.
     #   It TESTS the  sum_unit_fractions_from  function defined below.
     #   Include at least **   3   ** tests (we wrote one for you).
     # Use the same 4-step process as for previous TEST functions.
@@ -277,6 +355,18 @@ def run_test_sum_unit_fractions_from():
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 2:
+    expected2 = 6.853  # This is APPROXIMATELY the correct answer.
+    answer2 = sum_unit_fractions_from(10, 9000)
+    print('Test 2 expected:', expected2, '(approximately)')
+    print('       actual:  ', answer2)
+
+    # Test 3:
+    expected3 = 1.8333  # This is APPROXIMATELY the correct answer.
+    answer3 = sum_unit_fractions_from(1, 3)
+    print('Test 3 expected:', expected3, '(approximately)')
+    print('       actual:  ', answer3)
+
 
 def sum_unit_fractions_from(m, n):
     """
@@ -291,14 +381,23 @@ def sum_unit_fractions_from(m, n):
       -- sum_unit_fractions_from(10, 9000)  returns about  6.853
     """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # DONE: 9. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(n):
 
+        if(m + k) < n:
+            total = total + (1/(m + k))
+
+        if(m + k) == n:
+            total = total + (1/n)
+
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
